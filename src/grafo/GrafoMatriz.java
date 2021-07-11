@@ -2,6 +2,7 @@ package grafo;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.PriorityQueue;
 
 public class GrafoMatriz extends Grafo implements Cloneable{
 
@@ -47,6 +48,24 @@ public class GrafoMatriz extends Grafo implements Cloneable{
 	
 	public double[] obtenerAdyacentes(int nodo) {
 		return this.matrizAdyacencia[nodo];
+	}
+
+	@Override
+	public List<PriorityQueue<Adyacente>> getGrafo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Integer> getNodosAdyacentes(int nodo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Adyacente> getAdyacentes(int nodo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
 

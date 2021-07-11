@@ -9,14 +9,14 @@ import java.util.Stack;
 import grafo.*;
 
 public class Dijkstra {
-	private GrafoLista grafo;
+	private Grafo grafo;
 	private int nodoInicial;
 	private int[] predecesores;
 	private double[] distancias;
 	private Set<Integer> s =new HashSet<Integer>();
 	private Set<Integer> vMenosS = new HashSet <Integer>();
 	
-	public Dijkstra (GrafoLista grafo, int nodoInicial) {
+	public Dijkstra (Grafo grafo, int nodoInicial) {
 		this.grafo = grafo;
 		this.nodoInicial = nodoInicial;
 		calcularDijkstra(this.nodoInicial);
@@ -51,8 +51,9 @@ public class Dijkstra {
 		// Primer paso: se carga en distancias todas las distancias a nodos directos
 		// desde el nodo inicial
 
-		for (Adyacente nodo : this.grafo.getGrafo().get(desde)) {
-			distancias[nodo.getId()] = nodo.getPeso();
+		List <Adyacente> adyacentes = this.grafo.getAdyacentes(desde);
+		for (Adyacente adyacente : adyacentes) {
+			distancias[adyacente.getId()] = adyacente.getPeso();
 		}
 
 		// Segundo y n pasos... Mientras vMenosS no sea vacio

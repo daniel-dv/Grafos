@@ -9,7 +9,7 @@ import grafo.*;
 public class Main {
 	public static void main(String[] args) {
 
-		//probarDijkstra();
+		probarDijkstra();
 		//probarPrim();
 		//probarKruskal();
 		//probarFloyd();
@@ -42,7 +42,7 @@ public class Main {
 	}
 	
 	public static void probarPrim() {
-		GrafoLista grafo = new GrafoLista(9);
+		Grafo grafo = new GrafoLista(9);
 		grafo.setArista(0, 1, 4, false);
 		grafo.setArista(0, 8, 8, false);
 		grafo.setArista(1, 8, 11, false);
@@ -83,14 +83,14 @@ public class Main {
 
 //		System.out.println(grafo);
 		Kruskal kruskal= new Kruskal(aristas, 9);
-		GrafoLista grafoResultado = kruskal.getGrafoResultado();
+		Grafo grafoResultado = kruskal.getGrafoResultado();
 		System.out.println(kruskal.getCostoMinimo());
 		System.out.println(grafoResultado);
 	}
 
 	public static void probarDijkstra() {
 		// Creacion de un grafo
-		GrafoLista grafo = new GrafoLista(5);
+		Grafo grafo = new GrafoLista(5);
 
 		grafo.setArista(0, 3, 30, false);
 		grafo.setArista(0, 1, 10, false);

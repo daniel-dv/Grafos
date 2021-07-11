@@ -48,12 +48,13 @@ public class GrafoLista extends Grafo {
 		return sal;
 	}
 
-
+	@Override
 	public List<PriorityQueue<Adyacente>> getGrafo() {
 		return this.grafo;
 	}
 
-	public List<Integer> getAdyacentes(int nodo) {
+	@Override
+	public List<Integer> getNodosAdyacentes(int nodo) {
 		List<Integer> adyacentes = new LinkedList<Integer>();
 		PriorityQueue<Adyacente> aux = new PriorityQueue<Adyacente>(grafo.get(nodo));
 		while(!aux.isEmpty())
@@ -61,6 +62,16 @@ public class GrafoLista extends Grafo {
 		return adyacentes;
 	}
 	
+	@Override
+	public List<Adyacente> getAdyacentes( int nodo){
+		List<Adyacente> adyacentes = new LinkedList<Adyacente>();
+		PriorityQueue<Adyacente> aux = new PriorityQueue<Adyacente>(grafo.get(nodo));
+		while(!aux.isEmpty())
+			adyacentes.add(aux.poll());
+		return adyacentes;
+	}
+	
+	@Override
 	public List<Arista> getAristas(){
 		List<Arista> aristas = new LinkedList <Arista>();
 		for (int i=0; i<this.grafo.size(); i++) {
@@ -73,5 +84,4 @@ public class GrafoLista extends Grafo {
 		return aristas;
 	}
 }
-
 

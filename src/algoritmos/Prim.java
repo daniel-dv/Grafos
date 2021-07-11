@@ -6,14 +6,14 @@ import java.util.Set;
 import grafo.*;
 
 public class Prim {
-	private GrafoLista grafo;
+	private Grafo grafo;
 	private Set<Integer> conjuntoG;
 	private Set<Integer> conjuntoMST;
 	private GrafoLista grafoResultado;
 	private double costoMinimo;
 	
 	
-	public Prim (GrafoLista grafo) {
+	public Prim (Grafo grafo) {
 		this.grafo =grafo;
 		this.conjuntoG = new HashSet <Integer>();
 		this.conjuntoMST = new HashSet <Integer>();
@@ -39,7 +39,7 @@ public class Prim {
 			
 			for(Integer nodoMST : conjuntoMST) {
 				
-				adyacentes=grafo.getAdyacentes(nodoMST);
+				adyacentes=grafo.getNodosAdyacentes(nodoMST);
 				for (Integer nodoAdyacente : adyacentes) {
 					if(conjuntoG.contains(nodoAdyacente)) {
 						if(min > this.grafo.getArista(nodoMST, nodoAdyacente)) {

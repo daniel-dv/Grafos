@@ -6,7 +6,7 @@ import java.util.PriorityQueue;
 import grafo.*;
 
 public class Kruskal {
-	private GrafoLista grafoResultado;
+	private Grafo grafoResultado;
 	private List<Arista> aristas;
 	private UnionFind unionFind;
 	private int cantNodos;
@@ -47,7 +47,7 @@ public class Kruskal {
 		return this.costoMinimo;
 	}
 	
-	public GrafoLista getGrafoResultado() {
+	public Grafo getGrafoResultado() {
 		return this.grafoResultado;
 	}
 }

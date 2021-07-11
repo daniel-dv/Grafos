@@ -6,7 +6,7 @@ import java.util.List;
 import grafo.*;
 
 public class BFS {
-    private GrafoLista grafo;
+    private Grafo grafo;
     private int nodoInicio;
     private int [] distanciaNodos;
 
@@ -29,7 +29,7 @@ public class BFS {
 
         while (queue.size() != 0) {
             nodoActual = queue.poll();
-            List<Integer> adyacentes = grafo.getAdyacentes(nodoActual);
+            List<Integer> adyacentes = grafo.getNodosAdyacentes(nodoActual);
             
             for (Integer adyacente : adyacentes) {
             	if (this.distanciaNodos[adyacente]==Integer.MAX_VALUE) {
