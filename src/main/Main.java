@@ -9,12 +9,14 @@ import grafo.*;
 public class Main {
 	public static void main(String[] args) {
 
-		probarDijkstra();
-		//probarPrim();
-		//probarKruskal();
-		//probarFloyd();
-		//probarWarshall();
-
+		//probarDijkstra();
+		// probarPrim();
+		// probarKruskal();
+		// probarFloyd();
+		// probarWarshall();
+		//probarPrimParcial();
+		//probarBFS();
+		probarDFS();
 	}
 
 	public static void probarFloyd() {
@@ -28,8 +30,46 @@ public class Main {
 		System.out.println(floyd);
 	}
 	
-
+	public static void probarBFS() {
+		Grafo grafo = new GrafoLista(6);
+		grafo.setArista(0, 1, 1, false);
+		grafo.setArista(0, 2, 1, false);
+		grafo.setArista(1, 3, 1, false);
+		grafo.setArista(2, 3, 1, false);
+		grafo.setArista(2, 4, 1, false);
+		grafo.setArista(3, 5, 1, false);
+		grafo.setArista(3, 4, 1, false);
+		BFS bfs = new BFS (grafo, 0);
+		System.out.println(bfs.getArbol());
+	}
 	
+	public static void probarDFS() {
+		Grafo grafo = new GrafoMatriz(6);
+		grafo.setArista(0, 1, 1, false);
+		grafo.setArista(0, 2, 1, false);
+		grafo.setArista(1, 3, 1, false);
+		grafo.setArista(2, 3, 1, false);
+		grafo.setArista(2, 4, 1, false);
+		grafo.setArista(3, 5, 1, false);
+		grafo.setArista(3, 4, 1, false);
+		DFS dfs = new DFS (grafo, 0);
+		System.out.println(dfs.getArbol());
+	}
+
+	public static void probarPrimParcial() {
+		Grafo grafo = new GrafoLista(5);
+		grafo.setArista(0, 2, 4, false);
+		grafo.setArista(0, 1, 5, false);
+		grafo.setArista(0, 3, 5, false);
+		grafo.setArista(0, 4, 5, false);
+		grafo.setArista(1, 2, 2, false);
+		grafo.setArista(1, 3, 2, false);
+		grafo.setArista(1, 4, 3, false);
+		grafo.setArista(3, 4, 2, false);
+		Prim prim = new Prim (grafo);
+		prim.getGrafoResultado();
+	}
+
 	public static void probarWarshall() {
 		GrafoMatriz grafo = new GrafoMatriz(3);
 		grafo.setArista(0, 1, 8, true);
@@ -37,10 +77,10 @@ public class Main {
 		grafo.setArista(0, 2, 5, true);
 		grafo.setArista(2, 1, 2, true);
 //		System.out.println(grafo);
-		Warshall warshall = new Warshall (grafo);
+		Warshall warshall = new Warshall(grafo);
 		System.out.println(warshall);
 	}
-	
+
 	public static void probarPrim() {
 		Grafo grafo = new GrafoLista(9);
 		grafo.setArista(0, 1, 4, false);
@@ -63,10 +103,9 @@ public class Main {
 //		System.out.println(prim.getCostoTotal());
 	}
 
-
 	public static void probarKruskal() {
-		List<Arista> aristas = new LinkedList <Arista>();
-		aristas.add(new Arista (0, 1, 4));
+		List<Arista> aristas = new LinkedList<Arista>();
+		aristas.add(new Arista(0, 1, 4));
 		aristas.add(new Arista(0, 8, 8));
 		aristas.add(new Arista(1, 8, 11));
 		aristas.add(new Arista(1, 3, 8));
@@ -82,7 +121,7 @@ public class Main {
 		aristas.add(new Arista(7, 8, 1));
 
 //		System.out.println(grafo);
-		Kruskal kruskal= new Kruskal(aristas, 9);
+		Kruskal kruskal = new Kruskal(aristas, 9);
 		Grafo grafoResultado = kruskal.getGrafoResultado();
 		System.out.println(kruskal.getCostoMinimo());
 		System.out.println(grafoResultado);

@@ -10,11 +10,13 @@ public class DFS {
 	//private Grafo arbol;
 	private boolean [] nodosVisitados;
 	private int nodoInicio;
+	private Grafo arbol;
 	
 	public DFS (Grafo grafo, int nodoInicio) {
 		this.grafo = grafo;
 		this.nodosVisitados = new boolean[this.grafo.getNodos()]; 
 		this.nodoInicio = nodoInicio;
+		this.arbol = new GrafoLista (this.grafo.getNodos());
 		ejecutar();
 	}
 
@@ -32,6 +34,7 @@ public class DFS {
 					if(!this.nodosVisitados[adyacente]) {
 						this.nodosVisitados[adyacente] =true;
 						pila.add(adyacente);
+						arbol.setArista(nodoActual, adyacente, 1, true);
 					}
 				}
 		}
@@ -39,6 +42,10 @@ public class DFS {
 	
 	public boolean hayCamino(int nodoFin) {
 		return this.nodosVisitados[nodoFin];
+	}
+	
+	public Grafo getArbol() {
+		return this.arbol;
 	}
 	
 	

@@ -58,8 +58,12 @@ public class GrafoMatriz extends Grafo implements Cloneable{
 
 	@Override
 	public List<Integer> getNodosAdyacentes(int nodo) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Integer> lista = new LinkedList <Integer>();
+			for (int j=0; j<this.matrizAdyacencia.length; j++) {
+				if (this.matrizAdyacencia[nodo][j] != Double.MAX_VALUE)
+					lista.add(j);
+			}
+		return lista;
 	}
 
 	@Override
